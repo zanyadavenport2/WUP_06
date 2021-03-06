@@ -16,7 +16,8 @@ GSS <-read.csv(file="GSScsv.csv",header=TRUE)
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
-Is gun ownership (OWNGUN) independent of race (RACE)?
+Is belief in the bigbang theory (BIGBANG) independent of race (RACE)?
+If not, then whose view differs from whom??
 
 # Methods
 
