@@ -18,7 +18,7 @@ require(knitr)
 require(foreign)
 GSS <-read.dta(file="GSS2018.dta")
 GSS <- droplevels(GSS)
-mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum)
+mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum,bible,bigbang)
 mydata <- na.omit(mydata)
 ```
 
@@ -163,7 +163,7 @@ fisherXY = function(x, y, confL = 0, printAll=FALSE){
 ```
 
 ```{r}
-fisherXY(GSS$cappun,GSS$race)
+fisherXY(mydata$cappun,mydata$race)
 ```
  
 
