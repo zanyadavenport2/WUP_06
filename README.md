@@ -1,4 +1,3 @@
 # WUP_06
-Watch the video presentation HowToDownloadFromNORC  then proceed to download in stata format 
-2018 and 1998 datasets  You will then go on to create your anmalysis in two different 
-branches - main branch has 2018 data and call the other branch "Number2" and analyze 1998 data in number2.
+Watch the video presentation HowToDownloadFromNORC  then data has been already loaded from the 2018 dta dataset  The master branch has alot more data than the number2 branch. You will then go on to create your anmalysis in two different 
+branches - main branch has 2018 data with over 1000 data points and the branch number2 has substantially less data in it.  Your job is to comment on the code blocks in each of the two branches  note that in the fisherXY results there is a difference in your conclusions  
