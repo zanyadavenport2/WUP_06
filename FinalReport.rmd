@@ -18,7 +18,7 @@ require(knitr)
 require(foreign)
 GSS <-read.dta(file="GSS2018.dta")
 GSS <- droplevels(GSS)
-mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum,bible,bigbang)
+mydata <- select(GSS,race,cappun)
 mydata <- na.omit(mydata)
 ```
 
