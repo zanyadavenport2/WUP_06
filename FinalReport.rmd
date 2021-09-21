@@ -5,14 +5,23 @@ date: "put the date here"
 output: html_document
 ---
 
+
+
+
+
+
+
 ```{r include=FALSE,echo=FALSE}
 require(tidyverse)
 require(tigerstats)
 require(knitr)
 require(foreign)
-GSS <-read.dta(file="GSS2018.dta",header=TRUE)
-#GSS <-read.dta(file="GSS1998.dta",header=TRUE)
+GSS <-read.dta(file="GSS2018.dta")
 GSS <- droplevels(GSS)
+mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum)
+mydata <- na.omit(mydata)
+#moredata <- select(GSS,race,cappun)
+#moredata <- na.omit(moredata)
 ```
 
 # Introduction
@@ -36,13 +45,58 @@ If not, then whose view differs from whom??
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+
+
+## Now with less data (more variables)
+
+```{r}
+dd2 <- mydata %>% group_by(race,cappun) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=race,y=count,fill=cappun))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=race,y=prcnt*100,fill=cappun)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+
+
+## Now with less data
+
+```{r}
+table2 <- xtabs(~race + cappun, data=mydata)
+rowPerc(table2)
+colPerc(table2)
+```
+
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+`
+
+
+## Less data version
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+fisherXY(mydata$race,mydata$cappun)
+```
 
 
 # Discussion and Conclusion
