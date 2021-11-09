@@ -45,7 +45,7 @@ If not, then whose view differs from whom??
 
 
 
-## Now with less data (more variables)
+## Now with The Most data (fewer variables gives more data points)
 
 ```{r}
 dd2 <- mydata %>% group_by(race,cappun) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -71,7 +71,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 
 
-## Now with less data
+## Now with More data
 
 ```{r}
 table2 <- xtabs(~race + cappun, data=mydata)
@@ -87,7 +87,7 @@ colPerc(table2)
 `
 
 
-## Less data version
+## More data version
 
 ```{r}
 chisq.test(table2)
