@@ -1,5 +1,5 @@
 ---
-title: "GSS challange"
+title: "GSS challange More Data"
 author: "Put your name here!"
 date: "put the date here"
 output: html_document
@@ -48,21 +48,6 @@ If not, then whose view differs from whom??
 
 ## Now with The Most data (fewer variables gives more data points)
 
-```{r}
-dd2 <- mydata %>% group_by(race,cappun) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
-
-
-# the group_by followed by summarize(count=n())
-
-basicC <- ggplot(dd2,aes(x=race,y=count,fill=cappun))
-basicC + geom_bar(stat="identity",position="dodge")
-
-#Now for percentage plot
-
-basicCC <- ggplot(dd2,aes(x=race,y=prcnt*100,fill=cappun)) 
-basicCC + geom_bar(stat="identity", position = "dodge")
-```
-
 
 
 ### Numerical Descriptive Results
@@ -74,11 +59,6 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 ## Now with More data
 
-```{r}
-table2 <- xtabs(~race + cappun, data=mydata)
-rowPerc(table2)
-colPerc(table2)
-```
 
 
 ## Inferential Results
@@ -90,17 +70,6 @@ colPerc(table2)
 
 ## More data version
 
-```{r}
-chisq.test(table2)
-chisqtestGC(table2)
-fisher.test(table2)
-#fisherXY(mydata$race,mydata$cappun)
-```
-
-```{r}
-fisherXY(mydata$cappun,mydata$race)
-```
- 
 
 # Discussion and Conclusion
 
