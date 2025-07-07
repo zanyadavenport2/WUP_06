@@ -1,5 +1,5 @@
 ---
-title: "GSS Challenge More Data"
+title: "GSS Challenge less Data"
 author: "Zanya Davenport "
 date: "Summer 2025"
 output: html_document
