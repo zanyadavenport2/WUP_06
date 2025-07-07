@@ -1,7 +1,7 @@
 ---
 title: "GSS challange More Data"
-author: "Put your name here!"
-date: "put the date here"
+author: "Zanya Davenport"
+date: "Summer 2025"
 output: html_document
 ---
 
@@ -44,7 +44,13 @@ If not, then whose view differs from whom??
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+barchartGC(~race + cappun,data=mydata)
+barchartGC(~race + cappun,data=mydata, type="percent")
 
+```
+
+Based off the barchart we can see that black people are against capital punishment while white people and the people who fall under other are in favor of it. Another reason the chart looks how it look because there are way more white people included in the data.
 
 ## Now with The Most data (fewer variables gives more data points)
 
